@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Comunicaciones | Goratrack Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3); border-color: #3b82f6; }
+        .logo-pixmedia { width: 208px; height: 33px; object-fit: contain; }
+        .category-badge { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; }
+        /* Filtro activo */
+        .filter-active { background-color: rgba(59, 130, 246, 0.2); color: #60a5fa; border-color: #1e40af; }
+    </style>
+</head>
+<body class="bg-[#0b0f1a] text-slate-300 font-sans min-h-screen flex flex-col">
+
+    <header class="hero-gradient border-b border-slate-800 sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="https://pixmedia.b-cdn.net/pixmedialogoblanco.png" alt="Pixmedia" class="logo-pixmedia">
+            <div class="hidden md:block text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Centro de Inteligencia & Comunicaciones
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-[#111827] py-16 border-b border-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 L100 0 L100 100 Z" fill="white" />
+            </svg>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Boletines de Seguridad</h1>
+            <p class="text-blue-400 font-medium mb-6 text-lg">Análisis de Riesgo | Inteligencia Vial | Reportes Operativos</p>
+            <p class="text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                Repositorio oficial de alertas estratégicas y análisis de entorno para la toma de decisiones logísticas y de seguridad patrimonial en Veracruz y México.
+            </p>
+        </div>
+    </div>
+
+    <main class="flex-grow py-12 px-4 max-w-7xl mx-auto w-full">
+        
+        <div class="flex justify-center gap-3 mb-12 flex-wrap" id="filters">
+            <button onclick="filterContent('all')" class="filter-btn filter-active px-5 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 text-xs font-bold uppercase hover:bg-slate-700 transition">Todos</button>
+            <button onclick="filterContent('seguridad')" class="filter-btn px-5 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 text-xs font-bold uppercase hover:bg-slate-700 transition">Seguridad Patrimonial</button>
+            <button onclick="filterContent('vial')" class="filter-btn px-5 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 text-xs font-bold uppercase hover:bg-slate-700 transition">Inteligencia Vial</button>
+            <button onclick="filterContent('dashboard')" class="filter-btn px-5 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 text-xs font-bold uppercase hover:bg-slate-700 transition">Dashboards</button>
+        </div>
+
+        <div id="grid-boletines" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+
+    </main>
+
+    <footer class="py-8 border-t border-slate-800 bg-[#080c14] text-center mt-auto">
+        <p class="text-slate-600 text-[10px] uppercase tracking-[0.3em] font-bold mb-2">Pixmedia Agency | Dirección de Tecnologías</p>
+        <p class="text-slate-700 text-xs">© 2026 Goratrack Intelligence System</p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // BASE DE DATOS DE BOLETINES (EDITAR AQUÍ)
+        // ==========================================
+        const boletines = [
+            {
+                titulo: "Alerta Crítica: Bloqueos Nacionales",
+                fecha: "05 Dic 2025",
+                categoria: "vial", // Opciones: seguridad, vial, dashboard
+                descripcion: "Proyección de riesgo por cierres en accesos a CDMX y rutas clave (Puebla-Veracruz) debido a protestas agrícolas.",
+                url: "bloqueos-051225.html",
+                icon: "fa-triangle-exclamation",
+                color: "text-red-500",
+                badgeColor: "bg-red-900/30 text-red-400 border-red-800"
+            },
+            {
+                titulo: "Dashboard Operativo Veracruz",
+                fecha: "05 Dic 2025",
+                categoria: "dashboard",
+                descripcion: "Análisis mensual de incidencia delictiva, focos rojos sociales y KPIs de seguridad en la zona Sur/Puerto.",
+                url: "boletin.html",
+                icon: "fa-chart-pie",
+                color: "text-blue-500",
+                badgeColor: "bg-blue-900/30 text-blue-400 border-blue-800"
+            }
+            // Copia este bloque para agregar más boletines futuros...
+        ];
+
+        // ==========================================
+        // MOTOR DE RENDERIZADO
+        // ==========================================
+        const grid = document.getElementById('grid-boletines');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        function renderCards(filter) {
+            grid.innerHTML = '';
+            let filtered = boletines.filter(b => filter === 'all' || b.categoria === filter);
+            
+            if(filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-slate-500"><i class="fas fa-folder-open text-4xl mb-3 block opacity-30"></i>No hay boletines en esta categoría.</div>`;
+                return;
+            }
+
+            filtered.forEach(b => {
+                const card = document.createElement('div');
+                card.className = `bg-[#161b2a] rounded-xl border border-slate-800 p-6 flex flex-col card-hover h-full group`;
+                
+                // Mapeo de nombres de categoría para mostrar
+                let catName = b.categoria === 'vial' ? 'Alerta Vial' : (b.categoria === 'dashboard' ? 'Business Intelligence' : 'Seguridad');
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-5">
+                        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-slate-600 transition">
+                            <i class="fas ${b.icon} ${b.color} text-xl"></i>
+                        </div>
+                        <span class="category-badge px-2 py-1 rounded border ${b.badgeColor}">${catName}</span>
+                    </div>
+                    
+                    <h3 class="text-lg font-bold text-white mb-3 leading-snug group-hover:text-blue-400 transition">${b.titulo}</h3>
+                    
+                    <p class="text-sm text-slate-400 mb-6 flex-grow leading-relaxed border-l-2 border-slate-700 pl-3">
+                        ${b.descripcion}
+                    </p>
+                    
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800/50">
+                        <div class="flex items-center text-xs text-slate-500 font-mono">
+                            <i class="far fa-calendar-alt mr-2"></i> ${b.fecha}
+                        </div>
+                        <a href="${b.url}" class="text-xs font-bold text-white bg-slate-700 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors flex items-center">
+                            LEER <i class="fas fa-arrow-right ml-2 text-[10px]"></i>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterContent(cat) {
+            // Actualizar UI Botones
+            buttons.forEach(btn => {
+                btn.classList.remove('filter-active', 'bg-blue-900/20', 'text-blue-400', 'border-blue-800');
+                btn.classList.add('bg-slate-800', 'text-slate-400', 'border-slate-700');
+                
+                // Si es el botón clickeado (o contiene el texto si usamos textContent, pero mejor por referencia directa si pudiéramos)
+                // Simplificación: usaremos el onclick attribute
+                if(btn.getAttribute('onclick').includes(`'${cat}'`)) {
+                     btn.classList.replace('bg-slate-800', 'bg-blue-900/20'); // Simulado
+                     btn.classList.add('filter-active');
+                }
+            });
+            renderCards(cat);
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards('all');
+        });
+    </script>
+</body>
+</html>
