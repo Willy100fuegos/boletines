@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Inteligencia de Seguridad Vial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        body { font-family: 'Roboto', sans-serif; }
+        
+        /* Estilos de las etiquetas de riesgo */
+        .risk-high { @apply bg-red-600 text-white px-2 py-0.5 rounded-full text-xs font-bold uppercase; }
+        .risk-medium { @apply bg-orange-500 text-white px-2 py-0.5 rounded-full text-xs font-bold uppercase; }
+        .risk-cdmx { @apply bg-slate-900 text-yellow-300 px-3 py-1 rounded-full text-xs font-bold uppercase; }
+
+        /* Estilo para la sombra del logo principal */
+        .logo-shadow {
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+        }
+
+        /* Estilo para el logo blanco del footer */
+        .logo-white {
+            filter: brightness(0) invert(1);
+        }
+
+        /* ESTILOS DE IMPRESIÓN */
+        @media print {
+            @page {
+                size: Letter;
+                margin: 0.8cm;
+            }
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: white !important;
+                font-size: 10pt;
+            }
+            section, table, tr, .card, .avoid-break {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .shadow-lg, .shadow-sm {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .max-w-6xl { max-width: 100% !important; margin: 0 !important; }
+            .bg-slate-800, .bg-slate-900, .print\\:bg-slate-800, .print\\:bg-slate-900 {
+                background-color: #1f2937 !important; /* Asegura el color oscuro */
+                color: white !important;
+            }
+        }
+    </style>
+    
+    <!-- METADATOS PARA TARJETA DE VISTA PREVIA (WHATSAPP / OPEN GRAPH) -->
+    <meta property="og:title" content="Goratrack | Alerta de Bloqueos Nacionales">
+    <meta property="og:description" content="Reporte de Inteligencia Vial: Proyección de Riesgo de Bloqueos carreteros y accesos a CDMX para el 5 y 6 de Diciembre 2025.">
+    <meta property="og:image" content="https://www.nmas.com.mx/_next/image/?url=https%3A%2F%2Fstatic-live.nmas.com.mx%2Fnmas-news%2Fstyles%2Fcorte_16_9%2Fcloud-storage%2F2025-12%2Fley-general-aguas-nacionales-bloqueos.jpg%3Fh%3D920929c4%26itok%3DjBEJ56mK&w=1920&q=75">
+    <meta property="og:type" content="website">
+    
+    <!-- Metadatos de Twitter Card (opcional, pero mejora la compatibilidad) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Goratrack | Alerta de Bloqueos Nacionales">
+    <meta name="twitter:description" content="Reporte de Inteligencia Vial: Proyección de Riesgo de Bloqueos carreteros y accesos a CDMX para el 5 y 6 de Diciembre 2025.">
+    <meta name="twitter:image" content="https://www.nmas.com.mx/_next/image/?url=https%3A%2F%2Fstatic-live.nmas.com.mx%2Fnmas-news%2Fstyles%2Fcorte_16_9%2Fcloud-storage%2F2025-12%2Fley-general-aguas-nacionales-bloqueos.jpg%3Fh%3D920929c4%26itok%3DjBEJ56mK&w=1920&q=75">
+    
+</head>
+<body class="bg-slate-100 text-slate-800 p-6 md:p-10 print:p-0 print:bg-white">
+
+    <div class="max-w-6xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden border border-slate-300 print:border-0 print:shadow-none">
+        
+        <!-- HEADER ESTRATÉGICO CON LOGO -->
+        <header class="bg-slate-800 text-white p-6 border-b-4 border-red-600 print:bg-slate-800 print:text-white">
+            <div class="flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Reporte de Inteligencia de Seguridad Vial</h1>
+                    <p class="text-red-400 font-medium mt-1">Proyección de Riesgo de Bloqueos (5 y 6 de Diciembre 2025)</p>
+                </div>
+                <div class="text-right">
+                    <!-- Logo Goratrack con sombra blanca -->
+                    <img src="https://goratrack.tecuidamos.mx/img/logo.png" alt="Goratrack Logo" class="h-10 logo-shadow">
+                </div>
+            </div>
+        </header>
+
+        <main class="p-6 md:p-8 print:p-4">
+
+            <!-- ALERTA PRINCIPAL CDMX -->
+            <section class="mb-8 bg-red-50 border-l-4 border-red-600 p-4 rounded-r-lg avoid-break print:bg-red-50">
+                <h3 class="font-extrabold text-red-900 mb-2 flex items-center text-xl">
+                    <svg class="w-6 h-6 mr-2 text-red-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-9a1 1 0 011-1h10a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                    ALERTA CRÍTICA: ACCESOS A CIUDAD DE MÉXICO
+                </h3>
+                <p class="text-red-800 font-medium">
+                    <span class="font-bold">CONFIRMADO:</span> Se mantiene el aviso extraoficial de que las **entradas a la CDMX** podrían ser tomadas los días **5 y 6 de diciembre** por caravanas de productores agrícolas.
+                </p>
+                <p class="text-sm text-red-700 mt-2">
+                    La presencia de maquinaria (tractores) y productores ya en inmediaciones de la Cámara de Diputados aumenta la probabilidad de cierres totales en las principales autopistas que convergen en el Valle de México, como medida de presión por la Ley de Aguas Nacionales.
+                </p>
+            </section>
+
+            <!-- TABLA DE MATRIZ DE RIESGO OPERACIONAL -->
+            <section class="mb-10 avoid-break">
+                <h2 class="text-xl font-bold text-slate-700 border-b-2 border-slate-300 pb-2 mb-4">1. Matriz de Riesgo por Eje Carretero (Proyección 5 y 6 de Dic.)</h2>
+                <div class="overflow-x-auto rounded-lg border border-slate-200">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-100 text-slate-600 uppercase font-bold print:bg-slate-200">
+                            <tr>
+                                <th class="p-4 border-b w-24">Riesgo</th>
+                                <th class="p-4 border-b w-1/4">Estado / Ciudad</th>
+                                <th class="p-4 border-b w-1/2">Tramos Críticos Confirmados (4 Dic.) y Proyección</th>
+                                <th class="p-4 border-b text-center">Persistencia</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <!-- Zacatecas (Alto) -->
+                            <tr class="hover:bg-red-50/20 avoid-break">
+                                <td class="p-4"><span class="risk-high">Alto</span></td>
+                                <td class="p-4 font-bold text-slate-700">Zacatecas (Norte/Centro)</td>
+                                <td class="p-4 text-gray-600">
+                                    Bloqueos persistentes: Caseta Osiris, Zacatecas–Saltillo, Zacatecas–Fresnillo. Grupos han pernoctado y declarado que reanudarán cierres si no hay avance legislativo.
+                                </td>
+                                <td class="p-4 text-center text-red-700 font-bold">
+                                    Muy probable
+                                </td>
+                            </tr>
+                            
+                            <!-- Querétaro/Guanajuato (Alto) -->
+                            <tr class="hover:bg-red-50/20 avoid-break">
+                                <td class="p-4"><span class="risk-high">Alto</span></td>
+                                <td class="p-4 font-bold text-slate-700">Qro. / Gto. (Corredor 57)</td>
+                                <td class="p-4 text-gray-600">
+                                    Autopista México–Querétaro (Caseta **Palmillas**). Tramos federales Querétaro–San Luis Potosí y Salamanca–León. Vías vitales para el acceso a CDMX desde el Norte.
+                                </td>
+                                <td class="p-4 text-center text-red-700 font-bold">
+                                    Muy probable
+                                </td>
+                            </tr>
+
+                            <!-- Chihuahua (Alto) -->
+                            <tr class="hover:bg-red-50/20 avoid-break">
+                                <td class="p-4"><span class="risk-high">Alto</span></td>
+                                <td class="p-4 font-bold text-slate-700">Chihuahua (Frontera)</td>
+                                <td class="p-4 text-gray-600">
+                                    Bloqueos en Cruces Internacionales: Puentes Zaragoza y Guadalupe Tornillo. Impacto directo en la cadena de suministro Norte-Sur.
+                                </td>
+                                <td class="p-4 text-center text-red-700 font-bold">
+                                    Probable / Mantenido
+                                </td>
+                            </tr>
+
+                            <!-- Veracruz / Puebla (Medio-Alto) -->
+                            <tr class="bg-orange-50/20 border-l-4 border-orange-400 avoid-break print:bg-orange-50/20">
+                                <td class="p-4"><span class="risk-medium">Medio-Alto</span></td>
+                                <td class="p-4 font-bold text-slate-700">Veracruz / Puebla / Tlax.</td>
+                                <td class="p-4 text-gray-600">
+                                    Rutas sensibles identificadas con riesgo de cierre recurrente: Puebla–Orizaba, **La Tinaja–Cosoleacaque** e Isla–Acayucan. Interrupciones en el eje Pachuca–Tuxpan.
+                                </td>
+                                <td class="p-4 text-center text-orange-700 font-bold">
+                                    Intermitente
+                                </td>
+                            </tr>
+
+                            <!-- Michoacán (Medio) -->
+                            <tr class="hover:bg-slate-50 avoid-break">
+                                <td class="p-4"><span class="risk-medium">Medio</span></td>
+                                <td class="p-4 font-bold text-slate-700">Michoacán</td>
+                                <td class="p-4 text-gray-600">
+                                    Bloqueo en Zamora–Los Reyes (Tingüindín) y afectaciones previas en Morelia. Los cierres han sido parciales/intermitentes.
+                                </td>
+                                <td class="p-4 text-center text-orange-700 font-bold">
+                                    Variable
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- IMAGEN DE DESTAQUE -->
+            <figure class="mb-10 avoid-break">
+                <img src="https://www.nmas.com.mx/_next/image/?url=https%3A%2F%2Fstatic-live.nmas.com.mx%2Fnmas-news%2Fstyles%2Fcorte_16_9%2Fcloud-storage%2F2025-12%2Fley-general-aguas-nacionales-bloqueos.jpg%3Fh%3D920929c4%26itok%3DjBEJ56mK&w=1920&q=75" alt="Imagen de Bloqueos en Autopista" class="w-full h-auto rounded-lg shadow-lg">
+                <figcaption class="mt-2 text-center text-sm text-gray-500">
+                     | Caravana de productores en protesta por la reforma a la Ley de Aguas Nacionales.
+                </figcaption>
+            </figure>
+
+            <!-- FOCO ESTRATÉGICO -->
+            <section class="mb-10 bg-slate-50 border border-slate-200 rounded-lg p-6 avoid-break print:bg-slate-50">
+                <h2 class="text-xl font-bold text-blue-700 border-b-2 border-blue-200 pb-2 mb-4 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 00-8 8c0 2.454.992 4.706 2.616 6.364l.01.01.01.01A7.962 7.962 0 0010 18a8 8 0 008-8 8 8 0 00-8-8zm0 14a6 6 0 110-12 6 6 0 010 12zM9 9h2v4H9z"></path></svg>
+                    2. Foco Estratégico y Riesgo Operacional
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Foco CDMX -->
+                    <div class="bg-white p-4 rounded shadow-md border-l-4 border-red-500 print:border print:border-gray-200">
+                        <h3 class="font-bold text-red-700 mb-2 flex items-center">
+                            <span class="risk-cdmx">CDMX (5 y 6 DIC.)</span>
+                        </h3>
+                        <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
+                            <li>**Rutas de Mayor Riesgo:** Autopista México–Puebla, México–Querétaro y México–Texcoco.</li>
+                            <li>**Causa:** Movilización masiva de tractores y productores. El riesgo es que los bloqueos sean totales y prolongados (hasta 48 horas si no hay diálogo).</li>
+                            <li>**Recomendación:** Activar rutas alternas y posponer envíos no esenciales con destino a la capital.</li>
+                        </ul>
+                    </div>
+                    <!-- Foco Golfo/Sureste -->
+                    <div class="bg-white p-4 rounded shadow-md border-l-4 border-orange-500 print:border print:border-gray-200">
+                        <h3 class="font-bold text-orange-700 mb-2 flex items-center">
+                            <span class="risk-medium">RUTAS DEL GOLFO (VERACRUZ)</span>
+                        </h3>
+                        <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
+                            <li>**Rutas Clave:** La Tinaja–Cosoleacaque e Isla–Acayucan.</li>
+                            <li>**Causa:** Productores de Veracruz, Puebla y Tlaxcala han informado estar listos para sumarse a nuevas jornadas de protesta.</li>
+                            <li>**Recomendación:** Evitar el tránsito no esencial por estas rutas. Si debe circular, prever demoras significativas y estar atento a desvíos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+             <!-- RECOMENDACIONES CLAVE (PARA PÚBLICO GENERAL) -->
+            <section class="mb-8 avoid-break">
+                <h2 class="text-xl font-bold text-slate-700 border-b-2 border-slate-300 pb-2 mb-4">3. Recomendaciones para el Viajero y Transportista</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                    
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 font-medium text-blue-800 flex items-start print:bg-blue-50">
+                        <span class="text-2xl mr-3 text-blue-600">✓</span>
+                        **Verificación de Última Hora:** Antes de iniciar el viaje, consulte las cuentas oficiales de **CAPUFE (074)** y Guardia Nacional Carreteras para conocer el estado vial en tiempo real.
+                    </div>
+                    
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 font-medium text-blue-800 flex items-start print:bg-blue-50">
+                        <span class="text-2xl mr-3 text-blue-600">✓</span>
+                        **Planificación Rigurosa:** Si su ruta incluye zonas de Alto Riesgo (Zacatecas, Querétaro, accesos a CDMX), planee con horas de anticipación o considere rutas secundarias, aunque estas sean más largas.
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 font-medium text-blue-800 flex items-start print:bg-blue-50">
+                        <span class="text-2xl mr-3 text-blue-600">✓</span>
+                        **Seguridad Personal y de Carga:** Evite permanecer detenido en zonas de conflicto. Si su unidad queda varada, extreme precauciones debido al riesgo adicional de robos o incidentes en vías bloqueadas.
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER ESTRATÉGICO -->
+        <footer class="bg-slate-900 text-white p-4 mt-6 print:bg-slate-900 print:text-white">
+            <div class="flex justify-between items-center text-xs">
+                <p class="text-slate-400">© 2025 | Generado de Fuentes Abiertas.</p>
+                <div class="flex items-center">
+                    <!-- Logo Goratrack en blanco (sin filtros) -->
+                    <img src="https://goratrack.tecuidamos.mx/img/logo.png" alt="Goratrack Logo" class="h-4 mr-2 logo-white">
+                    <span class="text-slate-500 font-bold uppercase">Centro de Inteligencia Goratrack</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
