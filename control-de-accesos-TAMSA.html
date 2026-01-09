@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goratrack | Propuesta de Solución de Seguridad Unificada para TAMSA</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de Tailwind para un estilo moderno -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'goratrack-blue': '#1a73e8', // Un azul corporativo fuerte
+                        'tamsa-red': '#cc0000', // Un rojo vibrante para acentuar
+                        'bg-light': '#f8f9fa',
+                        'bg-dark': '#343a40',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Estilos CSS personalizados para animaciones y scroll -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+
+        /* Efecto de sombra para tarjetas */
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo ligeramente traslúcido */
+            backdrop-filter: blur(5px); /* Efecto de desenfoque sutil */
+        }
+
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Animación simple de entrada (fade-up) */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Clase para un fondo sutil en la sección de propuesta */
+        .gradient-bg {
+            background: linear-gradient(180deg, #ffffff 0%, #f3f6ff 100%);
+        }
+
+        /* SVG Icono de Check (simulación de Lucide/Heroicons) */
+        .icon-check {
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- BARRA DE NAVEGACIÓN (Header) -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo Goratrack -->
+            <div class="flex items-center space-x-4">
+                <img src="https://goratrack.tecuidamos.mx/img/logo.png" alt="Logo Goratrack" class="h-8 md:h-10">
+            </div>
+            <!-- Título Central (Oculto en móvil) -->
+            <h1 class="text-xl font-extrabold text-goratrack-blue hidden md:block">PLATAFORMA DE SEGURIDAD UNIFICADA</h1>
+            <!-- Logo TAMSA -->
+            <img src="http://imgfz.com/i/2LDMSkX.png" alt="Logo TAMSA" class="h-8 md:h-10">
+        </div>
+    </header>
+
+    <!-- SLIDE 1: INTRODUCCIÓN Y PROBLEMA -->
+    <section class="gradient-bg pt-16 pb-24 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up" style="animation-delay: 0.1s;">
+            <p class="text-tamsa-red font-semibold mb-3 tracking-widest uppercase">Propuesta Estratégica de Seguridad</p>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Visibilidad Total y Control Absoluto en el Campus de <span class="text-tamsa-red">TAMSA</span>
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
+                Entendemos sus retos: La necesidad de ir más allá del control de acceso tradicional para empleados y lograr un **rastreo en tiempo real** de visitantes y vehículos dentro de sus instalaciones.
+            </p>
+            <a href="#solucion" class="inline-block bg-goratrack-blue text-white font-bold py-3 px-8 rounded-full hover:bg-goratrack-blue/90 transition duration-300 transform hover:scale-105">
+                Conozca la Solución de Goratrack
+            </a>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: EL CORAZÓN DE LA SOLUCIÓN - PLATAFORMA UNIFICADA -->
+    <section id="solucion" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-gray-900 mb-12 text-center fade-in-up" style="animation-delay: 0.3s;">
+                1. Nuestra Plataforma de Gestión de Seguridad
+            </h3>
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Tarjeta 1: Integración total (CON NUEVA IMAGEN) -->
+                <div class="card-shadow p-6 rounded-xl border border-gray-100 flex flex-col justify-between fade-in-up" style="animation-delay: 0.4s;">
+                    <img src="https://static.casadomo.com/media/2025/07/hikvision-plataforma-seguridad-hik-connect-app-funciones.png" 
+                         alt="Plataforma de Seguridad Unificada" 
+                         class="img-placeholder h-40 mb-4 object-contain">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3">Integración total</h4>
+                        <p class="text-gray-600">Unificamos video, control de acceso, gestión de visitantes y seguridad vehicular en una sola consola. Elimine los "silos" de información para una visión de 360°.</p>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta 2: Automatización (Usando la imagen provista para ilustrar el control) -->
+                <div class="card-shadow p-6 rounded-xl border border-gray-100 flex flex-col justify-between fade-in-up" style="animation-delay: 0.5s;">
+                    <img src="https://osao.com.mx/wp-content/uploads/2020/11/hik-control-accesos-768x564.jpg" alt="Sistema de Control de Acceso Integrado" class="img-placeholder h-40 mb-4 object-contain">
+                    <div>
+                         <h4 class="text-xl font-semibold mb-3">Automatización de Protocolos</h4>
+                        <p class="text-gray-600">El sistema ejecuta acciones predefinidas (ej. abrir barreras, enviar alertas) al detectar eventos, reduciendo el tiempo de respuesta humana y errores.</p>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta 3: Escalabilidad (CON NUEVA IMAGEN) -->
+                <div class="card-shadow p-6 rounded-xl border border-gray-100 flex flex-col justify-between fade-in-up" style="animation-delay: 0.6s;">
+                    <img src="https://static.casadomo.com/media/2025/07/hikvision-plataforma-seguridad-hik-partner-pro-mantenimiento-remoto.png" 
+                         alt="Mantenimiento Remoto y Modularidad" 
+                         class="img-placeholder h-40 mb-4 object-contain">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3">Diseño Modular y Abierto</h4>
+                        <p class="text-gray-600">Nuestra plataforma crece con TAMSA. Permite integrar su actual Control de Acceso de empleados y es compatible con futura tecnología (biometría, GPS, etc.).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: SOLUCIÓN ESPECÍFICA PARA VISITANTES Y VEHÍCULOS -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-gray-900 mb-10 text-center fade-in-up" style="animation-delay: 0.7s;">
+                2. Control Detallado de Personas y Vehículos
+            </h3>
+
+            <!-- Feature 1: Gestión de Visitantes y Rastreo Interno -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="fade-in-up" style="animation-delay: 0.8s;">
+                    <span class="text-lg font-semibold text-tamsa-red mb-2 block">MÓDULO DE REGISTRO Y RASTREO POR ZONAS</span>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Control de Flujo Interno de Visitantes</h4>
+                    <p class="text-gray-600 mb-4">Implementamos la trazabilidad por zonas de acceso. El sistema siempre sabrá cuál fue el **último punto de acceso válido** de cada visitante y si sigue dentro de la instalación.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="icon-check text-goratrack-blue mt-1 mr-2 flex-shrink-0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>
+                                <strong class="font-semibold">Credenciales QR Temporales:</strong> Pases generados por el anfitrión con fecha y permisos de acceso específicos, validados en lectores QR.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="icon-check text-goratrack-blue mt-1 mr-2 flex-shrink-0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>
+                                <strong class="font-semibold">Control de Acceso Físico (Puertas/Torniquetes):</strong> Los puntos de acceso solo permitirán el paso si la tarjeta o QR tiene permiso para esa zona.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="icon-check text-goratrack-blue mt-1 mr-2 flex-shrink-0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>
+                                <strong class="font-semibold">Registro Central:</strong> Todos los registros (Entrada/Salida, denegaciones) quedan consolidados en un reporte único.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Imagen de Lectura QR y torniquetes para ilustrar el Módulo de Visitas -->
+                <div class="bg-gray-100 p-6 rounded-xl flex flex-col justify-center items-center h-full min-h-64 fade-in-up" style="animation-delay: 0.9s;">
+                    <img src="https://www.kimaldi.com/wp-content/uploads/2021/06/DQ-Mini-lectura-codigo-QR_Kimaldi.jpg" alt="Lector de código QR para acceso" class="img-placeholder mb-4 w-48 h-auto object-contain">
+                    <img src="https://osao.com.mx/wp-content/uploads/2020/11/hik-control-accesos-768x564.jpg" alt="Torniquete de acceso físico" class="img-placeholder h-auto w-full object-contain">
+                </div>
+            </div>
+
+            <!-- Feature 2: Control Vehicular y LPR -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Imagen de Barrera y LPR para ilustrar el Control Vehicular -->
+                <div class="bg-gray-100 p-6 rounded-xl flex justify-center items-center h-full min-h-64 order-2 md:order-1 fade-in-up" style="animation-delay: 1.0s;">
+                    <img src="https://www.casmarglobal.com/media/magefan_blog/2022.08.25_ZKteco_-_Barreras_Parking.jpg" alt="Sistema de Barrera de Acceso y LPR" class="img-placeholder">
+                </div>
+                <div class="order-1 md:order-2 fade-in-up" style="animation-delay: 1.1s;">
+                    <span class="text-lg font-semibold text-tamsa-red mb-2 block">GESTIÓN DE ENTRADAS Y SALIDAS VEHICULARES</span>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Reconocimiento Automático de Placas (LPR)</h4>
+                    <p class="text-gray-600 mb-4">Integramos cámaras de alta precisión con su base de datos central de visitantes y empleados para automatizar el acceso vehicular.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="icon-check text-goratrack-blue mt-1 mr-2 flex-shrink-0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>
+                                <strong class="font-semibold">Vínculo de Identidad:</strong> La placa registrada se vincula automáticamente al ID del visitante, garantizando la trazabilidad.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="icon-check text-goratrack-blue mt-1 mr-2 flex-shrink-0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>
+                                <strong class="font-semibold">Acceso Inteligente:</strong> La cámara lee la placa en milisegundos, verifica la autorización y activa la pluma automáticamente, eliminando la congestión.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="icon-check text-goratrack-blue mt-1 mr-2 flex-shrink-0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div>
+                                <strong class="font-semibold">Reporte Consolidado:</strong> Los registros vehiculares quedan en la misma base de datos centralizada de acceso de personas.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4: CONCLUSIÓN Y PROPUESTA DE VALOR -->
+    <section class="py-20 bg-bg-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up" style="animation-delay: 1.2s;">
+            <div class="flex justify-center items-center mb-4">
+                <img src="https://goratrack.tecuidamos.mx/img/logo.png" alt="Logo Goratrack" class="h-10 filter brightness-0 invert" style="filter: brightness(0) invert(1);">
+            </div>
+            <h3 class="text-3xl font-bold mb-4">
+                3. La Propuesta de Valor
+            </h3>
+            <p class="text-gray-300 text-lg mb-8">
+                Más allá de un simple sistema, le ofrecemos una gestión de seguridad más inteligente, rápida y con un retorno de inversión claro para TAMSA.
+            </p>
+            
+            <div class="grid sm:grid-cols-3 gap-6 text-left mb-10">
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <p class="font-bold text-lg mb-1">Mejora Operativa</p>
+                    <p class="text-sm text-gray-400">Procesos de acceso 70% más rápidos y **reducción de errores humanos** en el registro de visitantes.</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <p class="font-bold text-lg mb-1">Consciencia Situacional</p>
+                    <p class="text-sm text-gray-400">Saber **en tiempo real** quién y dónde se encuentra una persona o vehículo dentro del campus.</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <p class="font-bold text-lg mb-1">Inversión Protegida</p>
+                    <p class="text-sm text-gray-400">Plataforma escalable compatible con su Control de Acceso actual y preparada para su expansión futura.</p>
+                </div>
+            </div>
+
+            <p class="text-xl font-semibold text-white/90">
+                En Goratrack, tenemos la experiencia y la infraestructura técnica para implementar esta Plataforma de Seguridad Unificada a la escala de TAMSA, garantizando la **seguridad total** y la **eficiencia operativa** que su empresa demanda.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bg-dark/90 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Goratrack - Soluciones Tecnológicas de Seguridad. Propuesta Confidencial para TAMSA.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
